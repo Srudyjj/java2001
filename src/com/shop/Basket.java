@@ -1,5 +1,5 @@
 package com.shop;
 
-public class Busket {
+public class Basket {
     Product[] products;
 }

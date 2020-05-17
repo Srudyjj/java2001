@@ -2,17 +2,20 @@ package com.seasons;
 
 public enum Season {
 
-    WINTER(-2, "Холодное время года"),
-    SPRING(10, ""),
-    SUMMER(20, "Теплое время года"),
-    AUTUMN(12, "");
+    WINTER(-2),
+    SPRING(10),
+    SUMMER(20) {
+        @Override
+        public String getDescription() {
+            return "Теплое время года";
+        }
+    },
+    AUTUMN(12);
 
     private final int averageTemperature;
-    private final String description;
 
-    Season(int averageTemperature, String description) {
+    Season(int averageTemperature) {
         this.averageTemperature = averageTemperature;
-        this.description = description;
     }
 
     public int getAverageTemperature() {
@@ -20,6 +23,6 @@ public enum Season {
     }
 
     public String getDescription() {
-        return description;
+        return "Холодное время года";
     }
 }

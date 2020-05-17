@@ -11,6 +11,9 @@ public class Main {
         for (Season season : Season.values()) {
             printSeasonInfo(season);
         }
+
+        Season season2 = Season.valueOf("WINTER");
+        System.out.println(season2);
     }
 
     public static void printPreferredSeason(Season season) {

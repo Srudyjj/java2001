@@ -1,8 +1,22 @@
 package com.shop.actions;
 
+import com.shop.Category;
+import com.shop.Main;
+import com.shop.Product;
+
 public class ProductList extends AbstractAction {
     @Override
     public void operation() {
         System.out.println("ProductList");
+        for(Category category:  Main.storage.getCategoryList()) {
+            for (Product product: category.getProducts()){
+                System.out.println(product);
+            }
+        }
+    }
+
+    @Override
+    public void setParameters(String parameters) {
+        this.parameters = parameters;
     }
 }

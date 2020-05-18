@@ -6,16 +6,8 @@ import com.shop.Product;
 import com.shop.User;
 
 public class Storage {
-    private final User[] users = new User[10];
-    private final Category[] categories = new Category[10];
-
-    public User[] getUsers() {
-        return users;
-    }
-
-    public Category[] getCategories() {
-        return categories;
-    }
+    private final User[] users = new User[2];
+    private final Category[] categories = new Category[2];
 
     public Storage() {
         this.users[0] = new User("user","pass", new Basket());

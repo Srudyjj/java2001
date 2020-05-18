@@ -1,5 +1,7 @@
 package com.shop;
 
+import java.util.Arrays;
+
 public class Category {
     private long id;
     private String name;
@@ -27,7 +29,7 @@ public class Category {
 
     public Product getProduct(long id) {
         Product product = null;
-        for (Product p: this.products) {
+        for (Product p : this.products) {
             if (p.getId() == id) {
                 product = p;
                 break;
@@ -44,5 +46,13 @@ public class Category {
         this.id = id;
         this.name = name;
         this.products = products;
+    }
+
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

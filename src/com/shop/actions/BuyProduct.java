@@ -5,4 +5,9 @@ public class BuyProduct extends AbstractAction {
     public void operation() {
         System.out.println("BuyProduct");
     }
+
+    @Override
+    public void setParameters(String parameters) {
+        this.parameters = parameters;
+    }
 }

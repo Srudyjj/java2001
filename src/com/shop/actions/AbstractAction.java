@@ -1,9 +1,13 @@
 package com.shop.actions;
 
 public abstract class AbstractAction {
-    public abstract void operation();
+    protected String parameters;
 
-    public final void runAction() {
+    public abstract void operation();
+    public abstract void setParameters(String parameters);
+
+    public final void runAction(String parameters) {
+        this.setParameters(parameters);
         this.operation();
     }
 }

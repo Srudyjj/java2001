@@ -5,4 +5,9 @@ public class AddToBasket extends AbstractAction {
     public void operation() {
         System.out.println("AddToBasket");
     }
+
+    @Override
+    public void setParameters(String parameters) {
+        this.parameters = parameters;
+    }
 }

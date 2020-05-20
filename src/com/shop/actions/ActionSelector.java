@@ -3,8 +3,9 @@ package com.shop.actions;
 public enum ActionSelector {
 
     CATEGORY_LIST("category-list", CategoryList.class),
+    SHOW_CATEGORY("show-category", ShowCategory.class),
     PRODUCT_List("product-list", ProductList.class),
-    ADD("add", AddToBasket.class),
+    ADD_TO_BASKET("add", AddToBasket.class),
     BUY("buy", BuyProduct.class);
 
     Class action;
@@ -23,6 +24,7 @@ public enum ActionSelector {
                 break;
             }
         }
+
         return action;
     }
 

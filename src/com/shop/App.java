@@ -9,9 +9,11 @@ import java.util.Scanner;
 
 public class App {
 
+    private static App instance;
+
     private Storage storage;
     private User currentUser;
-    private Scanner scanner;
+    private final Scanner scanner;
 
     public Storage getStorage() {
         return storage;
@@ -29,7 +31,7 @@ public class App {
         this.currentUser = currentUser;
     }
 
-    public App(Storage storage, Scanner scanner) {
+    private App(Storage storage, Scanner scanner) {
         this.storage = storage;
         this.scanner = scanner;
     }
@@ -43,7 +45,7 @@ public class App {
             }
         }
 
-        String command = "";
+        String command;
         do {
 
             System.out.print("shop> ");
@@ -80,6 +82,13 @@ public class App {
             System.out.printf("User: %s with password: %s doesn't exist!!!%n", login, password);
             return false;
         }
+    }
+
+    public static App getInstance() {
+        if (Objects.isNull(instance)) {
+            instance = new App(new Storage(), new Scanner(System.in));
+        }
+        return instance;
     }
 
 }

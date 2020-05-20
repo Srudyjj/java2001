@@ -15,11 +15,11 @@ public enum ActionSelector {
         this.action = actionClass;
     }
 
-    public static Class findAction(String command) {
-        Class action = null;
+    public static AbstractAction findAction(String command) throws Exception {
+        AbstractAction action = null;
         for (ActionSelector value : ActionSelector.values()) {
             if (value.getCommand().equals(command)) {
-                action = value.getAction();
+                action = (AbstractAction) value.getAction().getConstructor().newInstance();
                 break;
             }
         }

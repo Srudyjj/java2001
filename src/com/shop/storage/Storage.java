@@ -39,4 +39,15 @@ public class Storage {
         }
         return category;
     }
+
+    public User findUser(String login, String password) {
+        User user = null;
+        for (User u : this.users) {
+            if (u.getLogin().equals(login) && u.getPassword().equals(password)) {
+                user = u;
+                break;
+            }
+        }
+        return user;
+    }
 }

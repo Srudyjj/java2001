@@ -45,27 +45,17 @@ public class App {
             }
         }
 
-        String command;
+        String command = "";
         do {
-
             System.out.print("shop> ");
-            String line = this.scanner.nextLine();
-
-            String[] arguments = line.trim().split("\\s");
-            command = (arguments.length > 0) ? arguments[0] : "";
-
-            if (command.isBlank()) {
-                continue;
-            }
-
-            String parameter = (arguments.length > 1) ? arguments[1] : null;
-
-            AbstractAction action = ActionSelector.findAction(command);
+            command = this.scanner.nextLine();
+            AbstractAction<?> action = ActionSelector.findAction(command);
             if (action == null) {
-                System.out.println("Command " + line + " not found!!!");
+                System.out.println("Command " + command + " not found!!!");
                 continue;
             }
-            action.runAction(parameter);
+            action.prepareAction(command);
+            action.runAction();
         } while (!command.equals("quit"));
     }
 

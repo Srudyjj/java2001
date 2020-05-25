@@ -1,13 +1,14 @@
 package com.shop.actions;
 
-public abstract class AbstractAction {
-    protected String parameters;
+import com.shop.actions.structure.input.AbstractInputStructure;
+
+public abstract class AbstractAction<T extends AbstractInputStructure> {
+    protected T parameters;
 
     public abstract void operation();
-    public abstract void setParameters(String parameters);
+    public abstract void prepareAction(String command);
 
-    public final void runAction(String parameters) {
-        this.setParameters(parameters);
+    public final void runAction() {
         this.operation();
     }
 }

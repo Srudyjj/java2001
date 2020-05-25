@@ -3,6 +3,7 @@ package com.shop.actions;
 import com.shop.App;
 import com.shop.Category;
 import com.shop.Main;
+import com.shop.actions.structure.input.CategoryListInputStructure;
 
 public class CategoryList extends AbstractAction {
     @Override
@@ -15,7 +16,7 @@ public class CategoryList extends AbstractAction {
     }
 
     @Override
-    public void setParameters(String parameters) {
-        this.parameters = parameters;
+    public void prepareAction(String parameters) {
+        this.parameters = new CategoryListInputStructure();
     }
 }

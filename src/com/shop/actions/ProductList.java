@@ -17,7 +17,7 @@ public class ProductList extends AbstractAction {
     }
 
     @Override
-    public void setParameters(String parameters) {
-        this.parameters = parameters;
+    public void prepareAction(String parameters) {
+        this.parameters = null;
     }
 }

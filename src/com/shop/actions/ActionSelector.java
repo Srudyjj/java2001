@@ -1,5 +1,7 @@
 package com.shop.actions;
 
+import java.lang.reflect.AnnotatedElement;
+
 public enum ActionSelector {
 
     CATEGORY_LIST("category-list", CategoryList.class),
@@ -8,19 +10,19 @@ public enum ActionSelector {
     ADD_TO_BASKET("add", AddToBasket.class),
     BUY("buy", BuyProduct.class);
 
-    Class action;
+    Class<?> action;
     String command;
 
-    ActionSelector(String command, Class actionClass) {
+    ActionSelector(String command, Class<?> actionClass) {
         this.command = command;
         this.action = actionClass;
     }
 
-    public static AbstractAction findAction(String command) throws Exception {
-        AbstractAction action = null;
+    public static AbstractAction<?> findAction(String command) throws Exception {
+        AbstractAction<?> action = null;
         for (ActionSelector value : ActionSelector.values()) {
-            if (value.getCommand().equals(command)) {
-                action = (AbstractAction) value.getAction().getConstructor().newInstance();
+            if (command.startsWith(value.getCommand())) {
+                action = (AbstractAction<?>) value.getAction().getConstructor().newInstance();
                 break;
             }
         }
@@ -32,7 +34,7 @@ public enum ActionSelector {
         return command;
     }
 
-    public Class getAction() {
+    public Class<?> getAction() {
         return action;
     }
 }

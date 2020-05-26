@@ -5,7 +5,14 @@ import com.shop.Category;
 import com.shop.Main;
 import com.shop.actions.structure.input.CategoryListInputStructure;
 
-public class CategoryList extends AbstractAction {
+public class CategoryList extends AbstractAction<> {
+
+
+    @Override
+    public void prepareAction() {
+
+    }
+
     @Override
     public void operation() {
         System.out.println("CategoryList");
@@ -14,6 +21,7 @@ public class CategoryList extends AbstractAction {
             System.out.println(category);
         }
     }
+
 
     @Override
     public void prepareAction(String parameters) {

@@ -1,14 +1,28 @@
 package com.shop.actions;
 
-import com.shop.actions.structure.input.AbstractInputStructure;
+import com.shop.actions.output.ObjectTransformer;
 
-public abstract class AbstractAction<T extends AbstractInputStructure> {
-    protected T parameters;
+public abstract class AbstractAction<T> {
+    protected String data;
+    protected T inputStructure;
 
-    public abstract void operation();
-    public abstract void prepareAction(String command);
+    public final String getData() {
+        return data;
+    }
 
-    public final void runAction() {
-        this.operation();
+    public void setData(String data) {
+        this.data = data;
+    }
+
+    public void setInputStructure(T inputStructure) {
+        this.inputStructure = inputStructure;
+    }
+
+    public abstract ObjectTransformer operation();
+    public abstract void prepareAction();
+
+    public final ObjectTransformer runAction() {
+        prepareAction();
+        return operation();
     }
 }

@@ -2,6 +2,7 @@ package com.shop;
 
 import com.shop.actions.AbstractAction;
 import com.shop.actions.ActionSelector;
+import com.shop.actions.output.ObjectTransformer;
 import com.shop.storage.Storage;
 
 import java.util.Objects;
@@ -54,8 +55,9 @@ public class App {
                 System.out.println("Command " + command + " not found!!!");
                 continue;
             }
-            action.prepareAction(command);
-            action.runAction();
+            action.setData(command);
+            ObjectTransformer result = action.runAction();
+            System.out.println(result.transformToConsoleOutput());
         } while (!command.equals("quit"));
     }
 

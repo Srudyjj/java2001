@@ -1,11 +1,9 @@
 package com.shop.actions;
 
-import java.lang.reflect.AnnotatedElement;
-
 public enum ActionSelector {
 
-    CATEGORY_LIST("category-list", CategoryList.class),
-    SHOW_CATEGORY("show-category", ShowCategory.class),
+    CATEGORY_LIST("category-list", CategoryListAction.class),
+    SHOW_CATEGORY("show-category", GetCategoryAction.class),
     PRODUCT_List("product-list", ProductList.class),
     ADD_TO_BASKET("add", AddToBasket.class),
     BUY("buy", BuyProduct.class);

@@ -1,6 +1,7 @@
-package com.shop.actions.output;
+package com.shop.actions.structure;
 
 public interface ObjectTransformer {
 
-    public String transformToConsoleOutput();
+    String transformToConsoleOutput();
+
 }

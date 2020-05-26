@@ -1,4 +1,4 @@
-package com.shop;
+package com.shop.actions.structure;
 
 public class Product {
 

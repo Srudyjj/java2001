@@ -1,13 +1,16 @@
 package com.shop.actions;
 
+import com.shop.actions.structure.ObjectTransformer;
+
 public class BuyProduct extends AbstractAction {
+
     @Override
-    public void operation() {
-        System.out.println("BuyProduct");
+    public void prepareAction() {
+
     }
 
     @Override
-    public void prepareAction(String parameters) {
-        this.parameters = null;
+    public ObjectTransformer operation() {
+        return null;
     }
 }

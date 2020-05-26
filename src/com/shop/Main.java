@@ -1,7 +1,6 @@
 package com.shop;
 
-import com.shop.storage.Storage;
-import java.util.Scanner;
+import com.shop.actions.structure.App;
 
 public class Main {
 

@@ -1,8 +1,7 @@
-package com.shop;
+package com.shop.actions.structure;
 
 import com.shop.actions.AbstractAction;
 import com.shop.actions.ActionSelector;
-import com.shop.actions.output.ObjectTransformer;
 import com.shop.storage.Storage;
 
 import java.util.Objects;
@@ -38,7 +37,6 @@ public class App {
     }
 
     public void init() throws Exception {
-
         if (Objects.isNull(this.currentUser)) {
             System.out.println("For using shop you should login!!!");
             if (!logIn()) {

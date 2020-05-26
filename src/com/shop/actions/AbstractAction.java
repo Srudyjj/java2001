@@ -1,6 +1,6 @@
 package com.shop.actions;
 
-import com.shop.actions.output.ObjectTransformer;
+import com.shop.actions.structure.ObjectTransformer;
 
 public abstract class AbstractAction<T> {
     protected String data;
@@ -14,15 +14,21 @@ public abstract class AbstractAction<T> {
         this.data = data;
     }
 
+    public T getInputStructure() {
+        return inputStructure;
+    }
+
     public void setInputStructure(T inputStructure) {
         this.inputStructure = inputStructure;
     }
 
     public abstract ObjectTransformer operation();
+
     public abstract void prepareAction();
 
     public final ObjectTransformer runAction() {
         prepareAction();
         return operation();
     }
+
 }

@@ -1,11 +1,18 @@
-package com.shop;
+package com.shop.actions.structure;
 
-import java.util.Arrays;
-
-public class Category {
+public class Category implements ObjectTransformer {
     private long id;
     private String name;
     private Product[] products;
+
+    public Category(long id, String name, Product[] products) {
+        this.id = id;
+        this.name = name;
+        this.products = products;
+    }
+
+    public Category() {
+    }
 
     public long getId() {
         return id;
@@ -42,17 +49,16 @@ public class Category {
         this.products = products;
     }
 
-    public Category(long id, String name, Product[] products) {
-        this.id = id;
-        this.name = name;
-        this.products = products;
-    }
-
     @Override
     public String toString() {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    @Override
+    public String transformToConsoleOutput() {
+        return this.toString();
     }
 }

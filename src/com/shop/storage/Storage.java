@@ -1,9 +1,9 @@
 package com.shop.storage;
 
-import com.shop.Basket;
-import com.shop.Category;
-import com.shop.Product;
-import com.shop.User;
+import com.shop.actions.structure.Basket;
+import com.shop.actions.structure.Category;
+import com.shop.actions.structure.Product;
+import com.shop.actions.structure.User;
 
 public class Storage {
     private final User[] users = new User[2];

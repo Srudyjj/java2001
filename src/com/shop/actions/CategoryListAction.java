@@ -1,6 +1,6 @@
 package com.shop.actions;
 
-import com.shop.actions.structure.App;
+import com.shop.App;
 import com.shop.actions.structure.Category;
 import com.shop.actions.structure.CategoryListStructure;
 import com.shop.actions.structure.StructureFactory;

@@ -3,14 +3,14 @@ package com.shop.actions;
 import com.shop.actions.structure.ObjectTransformer;
 
 public abstract class AbstractAction<T> {
-    protected String data;
+    protected String[] data;
     protected T inputStructure;
 
-    public final String getData() {
+    public final String[] getData() {
         return data;
     }
 
-    public void setData(String data) {
+    public void setData(String... data) {
         this.data = data;
     }
 

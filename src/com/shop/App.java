@@ -1,9 +1,12 @@
-package com.shop.actions.structure;
+package com.shop;
 
 import com.shop.actions.AbstractAction;
 import com.shop.actions.ActionSelector;
+import com.shop.actions.structure.ObjectTransformer;
+import com.shop.actions.structure.User;
 import com.shop.storage.Storage;
 
+import java.util.Arrays;
 import java.util.Objects;
 import java.util.Scanner;
 
@@ -48,12 +51,23 @@ public class App {
         do {
             System.out.print("shop> ");
             command = this.scanner.nextLine();
-            AbstractAction<?> action = ActionSelector.findAction(command);
-            if (action == null) {
-                System.out.println("Command " + command + " not found!!!");
+            if (command.isBlank()) {
                 continue;
             }
-            action.setData(command);
+
+            String [] arguments = parse(command);
+            String operationName = arguments[0];
+            String[] options = {};
+            if (arguments.length > 1) {
+                options = Arrays.copyOfRange(arguments, 1, arguments.length);
+            }
+
+            AbstractAction<?> action = ActionSelector.findAction(operationName);
+            if (action == null) {
+                System.out.println("Command " + operationName + " not found!!!");
+                continue;
+            }
+            action.setData(options);
             ObjectTransformer result = action.runAction();
             System.out.println(result.transformToConsoleOutput());
         } while (!command.equals("quit"));
@@ -79,6 +93,10 @@ public class App {
             instance = new App(new Storage(), new Scanner(System.in));
         }
         return instance;
+    }
+
+    private String[] parse(String line) {
+        return line.split("\\s");
     }
 
 }

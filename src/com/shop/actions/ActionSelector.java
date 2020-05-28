@@ -4,8 +4,8 @@ public enum ActionSelector {
 
     CATEGORY_LIST("category-list", CategoryListAction.class),
     SHOW_CATEGORY("show-category", GetCategoryAction.class),
-    PRODUCT_List("product-list", ProductList.class),
-    ADD_TO_BASKET("add", AddToBasket.class),
+    ADD_TO_BASKET("add-to-basket", AddToBasket.class),
+    SHOW_BASKET("show-basket", ShowBasketAction.class),
     BUY("buy", BuyProduct.class);
 
     Class<?> action;

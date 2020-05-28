@@ -14,4 +14,12 @@ public class StructureFactory {
         category.setId(parser.getLongOption("id"));
         return category;
     }
+
+    public static Product createGetProductByIdStructure(String[] data, Parser parser) {
+        parser.parse(data);
+        Product product = new Product();
+        product.setId(parser.getLongOption("id"));
+        return product;
+    }
+
 }

@@ -28,5 +28,4 @@ public class GetCategoryAction extends AbstractAction<Category> {
         return category;
     }
 
-
 }

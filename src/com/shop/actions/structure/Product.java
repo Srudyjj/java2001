@@ -40,12 +40,15 @@ public class Product {
         this.rating = rating;
     }
 
-    public Product(long id,String name, float price, int rating) {
+    public Product(long id, String name, float price, int rating) {
         this.id = id;
         this.name = name;
         this.price = price;
         this.rating = rating;
     }
+
+    public Product() {}
+
     @Override
     public String toString() {
         return "Product{" +

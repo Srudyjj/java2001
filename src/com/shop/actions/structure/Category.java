@@ -1,14 +1,16 @@
 package com.shop.actions.structure;
 
+import java.util.Arrays;
+
 public class Category implements ObjectTransformer {
     private long id;
     private String name;
-    private Product[] products;
+    private long[] productIds;
 
-    public Category(long id, String name, Product[] products) {
+    public Category(long id, String name, long[] productIds) {
         this.id = id;
         this.name = name;
-        this.products = products;
+        this.productIds = productIds;
     }
 
     public Category() {
@@ -30,23 +32,12 @@ public class Category implements ObjectTransformer {
         this.name = name;
     }
 
-    public Product[] getProducts() {
-        return products;
+    public long[] getProductsIds() {
+        return productIds;
     }
 
-    public Product getProduct(long id) {
-        Product product = null;
-        for (Product p : this.products) {
-            if (p.getId() == id) {
-                product = p;
-                break;
-            }
-        }
-        return product;
-    }
-
-    public void setProducts(Product[] products) {
-        this.products = products;
+    public void setProductsIds(long[] productIds) {
+        this.productIds = productIds;
     }
 
     @Override
@@ -54,6 +45,7 @@ public class Category implements ObjectTransformer {
         return "Category{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
+                ", productsIds=" + Arrays.toString(productIds) +
                 '}';
     }
 

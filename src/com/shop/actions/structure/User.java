@@ -5,12 +5,12 @@ import java.util.Objects;
 public class User {
     private String login;
     private String password;
-    private Basket basket;
+    private long basketId;
 
-    public User(String login, String password, Basket basket) {
+    public User(String login, String password, long basketId) {
         this.login = login;
         this.password = password;
-        this.basket = basket;
+        this.basketId = basketId;
     }
 
     public String getLogin() {
@@ -29,12 +29,12 @@ public class User {
         this.password = password;
     }
 
-    public Basket getBasket() {
-        return basket;
+    public long getBasketId() {
+        return basketId;
     }
 
-    public void setBasket(Basket basket) {
-        this.basket = basket;
+    public void setBasketId(long basketId) {
+        this.basketId = basketId;
     }
 
     @Override

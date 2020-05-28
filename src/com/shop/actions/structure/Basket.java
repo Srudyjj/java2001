@@ -1,18 +1,42 @@
 package com.shop.actions.structure;
 
-public class Basket {
-    private final Product[] products;
+import java.util.Arrays;
+
+public class Basket implements ObjectTransformer {
+    private long id;
+    private final long[] productsIds = new long[30];
     private int position = 0;
 
-    public Basket() {
-        this.products = new Product[100];
+    public long getId() {
+        return id;
     }
 
-    public void add(Product product) {
-        this.products[position++] = product;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public Product[] getProducts() {
-        return this.products;
+    public Basket(long id) {
+        this.id = id;
+    }
+
+    public void addProductId(long id) {
+        this.productsIds[position++] = id;
+    }
+
+    public long[] getProductsIds() {
+        return this.productsIds;
+    }
+
+    @Override
+    public String toString() {
+        return "Basket{" +
+                "id=" + id +
+                ", productsIds=" + Arrays.toString(productsIds) +
+                '}';
+    }
+
+    @Override
+    public String transformToConsoleOutput() {
+        return this.toString();
     }
 }

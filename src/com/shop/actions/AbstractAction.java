@@ -22,9 +22,9 @@ public abstract class AbstractAction<T> {
         this.inputStructure = inputStructure;
     }
 
-    public abstract ObjectTransformer operation();
-
     public abstract void prepareAction();
+
+    public abstract ObjectTransformer operation();
 
     public final ObjectTransformer runAction() {
         prepareAction();

@@ -78,7 +78,7 @@ public class App {
         String login = this.scanner.nextLine();
         System.out.print("password: ");
         String password = this.scanner.nextLine();
-        User user = this.storage.findUser(login, password);
+        User user = this.storage.getUser(login, password);
         if (!Objects.isNull(user)) {
             this.currentUser = user;
             return true;
